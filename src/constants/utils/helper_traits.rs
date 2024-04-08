@@ -1,4 +1,5 @@
-use crate::{constants::simd::{simd_type_trait_bounds::TargetExtensionTypes, TSLArithmetic}, generated::extensions::sse::Sse};
+use super::super::TSLArithmetic;
+use super::super::simd_traits::SimdPrimitiveImpl;
 
 // Trait to select OffsetBaseType
 pub trait SelectOffsetBaseType {
@@ -29,7 +30,6 @@ impl_signed_to_unsigned!{
     u8, u16, u32, u64, u128, usize
 }
 
-// Trait to get transformed Register_Type
-pub trait TransformType <OtherType: TSLArithmetic, const VectorSizeInBits : usize>{
-    type Output;
-}
+// pub fn is_ambiguos<T: SimdPrimitiveImpl, U: SimdPrimitiveImpl>() -> bool {  // Ist nur Runtime. Alternative: Nach Generator outsorucen.
+//     (std::any::TypeId::of::<T::ReturnType>() == std::any::TypeId::of::<U::ReturnType>()) & (std::any::TypeId::of::<T::Args>() == std::any::TypeId::of::<U::Args>())
+// }

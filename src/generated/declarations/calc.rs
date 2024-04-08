@@ -1,5 +1,11 @@
 use std::marker::PhantomData;
-use crate::constants::simd::TSLArithmetic;
-use crate::constants::simd::simd_type_trait_bounds::TargetExtensionTypes;
+use crate::constants::TSLArithmetic;
+use crate::constants::simd_traits::{SimdPrimitiveImpl, TargetExtension};
 
-pub struct add<T: TSLArithmetic , U: TargetExtensionTypes<T, VectorSizeInBits>, const VectorSizeInBits: usize>(pub PhantomData<T>, pub PhantomData<U>);
+pub struct Add<T: TargetExtension>(pub PhantomData<T>);
+impl<T: TargetExtension> Add<T> {
+    // Constructor function that hides the PhantomData from the user.
+    pub fn new() -> Self {
+        Add(PhantomData)
+    }
+}
