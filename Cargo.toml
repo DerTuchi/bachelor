@@ -9,4 +9,5 @@ edition = "2021"
 num-traits = "0.2"
 
 [features]
+default = ["workaround"]
 workaround = []

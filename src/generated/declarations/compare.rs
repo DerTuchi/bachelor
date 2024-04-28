@@ -16,8 +16,9 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/extensions/mod.rs
+ * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/declarations/compare.rs
  * \date 2024-04-28
+ * \brief Compare primitives.
  * \note
  * Git-Local Url : /home/dertuchi/work/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -25,14 +26,11 @@
  * Git-Commit    : v0.0.6 (7e77c245b3b376caa65a2219fb685d487b96ec1a)
  *
  */
+use std::marker::PhantomData;
+use crate::static_files::TSLArithmetic;
 use crate::static_files::simd_traits::*;
 
 
-
-pub mod scalar;
-pub mod simd {
-    pub mod intel {
-        pub mod avx2;
-        pub mod sse;    }}
+pub struct less_than<const Idof: bool, T: TargetExtension>(pub PhantomData<T>);
 
 

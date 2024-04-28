@@ -16,8 +16,9 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/extensions/mod.rs
+ * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/declarations/convert.rs
  * \date 2024-04-28
+ * \brief Conversion primitives.
  * \note
  * Git-Local Url : /home/dertuchi/work/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -25,14 +26,17 @@
  * Git-Commit    : v0.0.6 (7e77c245b3b376caa65a2219fb685d487b96ec1a)
  *
  */
+use std::marker::PhantomData;
+use crate::static_files::TSLArithmetic;
+use crate::generated::extensions::simd::intel::avx2::avx2;
+use std::mem;
+use crate::generated::extensions::simd::intel::sse::sse;
+use std::arch::x86_64::*;
 use crate::static_files::simd_traits::*;
 
 
+pub struct reinterpret<const Idof: bool, ToType : TargetExtension, T: TargetExtension>(pub PhantomData<ToType>, pub PhantomData<T>);
 
-pub mod scalar;
-pub mod simd {
-    pub mod intel {
-        pub mod avx2;
-        pub mod sse;    }}
+pub struct cast<const Idof: bool, ToType : TargetExtension, T: TargetExtension>(pub PhantomData<ToType>, pub PhantomData<T>);
 
 
