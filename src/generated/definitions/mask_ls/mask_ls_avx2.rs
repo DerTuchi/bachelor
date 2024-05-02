@@ -16,9 +16,9 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/compare/compare_sse.rs
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/mask_ls/mask_ls_avx2.rs
  * \date 2024-05-02
- * \brief Compare primitives.
+ * \brief Load/Store primitives on masked registers
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -27,161 +27,32 @@
  *
  */
 use std::arch::x86_64::*;
-use crate::generated::declarations::compare::*;
-use crate::generated::extensions::simd::intel::sse::*;
+use crate::generated::declarations::mask_ls::*;
+use crate::generated::extensions::simd::intel::avx2::*;
 use crate::static_files::simd_traits::*;
 
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<i32>> {
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<i64>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
      * @details:
-     * Target Extension: sse.
-     *        Data Type: i32
-     *  Extension Flags: ['sse2']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::615
-     */
-
-    type BaseType = i32;
-    type TargetExtension = sse<i32>;
-    type AdditionalParam = ();
-    type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
-    type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
-    type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
-    type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
-    type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
-    const is_native: bool = true;
-    const check: () = (); // function is native so no check for Idof needed.
-
-    fn parameters_queryable() -> bool{
-        return true;
-    }
-    fn has_return_value() -> bool {
-        return true;
-    }
-    fn native_supported() -> bool {
-        return true;
-    }
-
-    #[must_use] 
-    #[inline(always)]
-    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
-        let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_cmplt_epi32(vec_a, vec_b)
-    }
-} // end of struct less_than for template specialization of less_than for sse using i32.
-
-
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<f32>> {
-    /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
-     * @details:
-     * Target Extension: sse.
-     *        Data Type: f32
-     *  Extension Flags: ['sse2']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::615
-     */
-
-    type BaseType = f32;
-    type TargetExtension = sse<f32>;
-    type AdditionalParam = ();
-    type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
-    type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
-    type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
-    type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
-    type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
-    const is_native: bool = true;
-    const check: () = (); // function is native so no check for Idof needed.
-
-    fn parameters_queryable() -> bool{
-        return true;
-    }
-    fn has_return_value() -> bool {
-        return true;
-    }
-    fn native_supported() -> bool {
-        return true;
-    }
-
-    #[must_use] 
-    #[inline(always)]
-    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
-        let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_cmplt_ps(vec_a, vec_b)
-    }
-} // end of struct less_than for template specialization of less_than for sse using f32.
-
-
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<f64>> {
-    /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
-     * @details:
-     * Target Extension: sse.
-     *        Data Type: f64
-     *  Extension Flags: ['sse2']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::615
-     */
-
-    type BaseType = f64;
-    type TargetExtension = sse<f64>;
-    type AdditionalParam = ();
-    type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
-    type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
-    type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
-    type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
-    type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
-    const is_native: bool = true;
-    const check: () = (); // function is native so no check for Idof needed.
-
-    fn parameters_queryable() -> bool{
-        return true;
-    }
-    fn has_return_value() -> bool {
-        return true;
-    }
-    fn native_supported() -> bool {
-        return true;
-    }
-
-    #[must_use] 
-    #[inline(always)]
-    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
-        let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_cmplt_pd(vec_a, vec_b)
-    }
-} // end of struct less_than for template specialization of less_than for sse using f64.
-
-
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<i64>> {
-    /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
-     * @details:
-     * Target Extension: sse.
+     * Target Extension: avx2.
      *        Data Type: i64
-     *  Extension Flags: ['sse4_2']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::619
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::513
      */
 
     type BaseType = i64;
-    type TargetExtension = sse<i64>;
+    type TargetExtension = avx2<i64>;
     type AdditionalParam = ();
     type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
     type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -199,32 +70,32 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<i64>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_cmpgt_epi64(vec_b, vec_a)
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i64gather_epi64(source, memory, index, mask, N)
     }
-} // end of struct less_than for template specialization of less_than for sse using i64.
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using i64.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u8>> {
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<i32>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
      * @details:
-     * Target Extension: sse.
-     *        Data Type: u8
-     *  Extension Flags: ['sse2', 'sse4_1']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::623
+     * Target Extension: avx2.
+     *        Data Type: i32
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::513
      */
 
-    type BaseType = u8;
-    type TargetExtension = sse<u8>;
+    type BaseType = i32;
+    type TargetExtension = avx2<i32>;
     type AdditionalParam = ();
     type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
     type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -242,34 +113,32 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u8>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_andnot_si128(
-_mm_cmpeq_epi8(vec_a, vec_b),
-_mm_cmpeq_epi8(vec_a, _mm_min_epu8(vec_a, vec_b)))
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i32gather_epi32(source, memory, index, mask, N)
     }
-} // end of struct less_than for template specialization of less_than for sse using u8.
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using i32.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u16>> {
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<u64>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
      * @details:
-     * Target Extension: sse.
-     *        Data Type: u16
-     *  Extension Flags: ['sse2', 'sse4_1']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::623
+     * Target Extension: avx2.
+     *        Data Type: u64
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::517
      */
 
-    type BaseType = u16;
-    type TargetExtension = sse<u16>;
+    type BaseType = u64;
+    type TargetExtension = avx2<u64>;
     type AdditionalParam = ();
     type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
     type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -287,34 +156,32 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u16>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_andnot_si128(
-_mm_cmpeq_epi16(vec_a, vec_b),
-_mm_cmpeq_epi16(vec_a, _mm_min_epu16(vec_a, vec_b)))
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i64gather_epi64(source, memory as *const i64, index, mask, N)
     }
-} // end of struct less_than for template specialization of less_than for sse using u16.
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using u64.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u32>> {
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<u32>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
      * @details:
-     * Target Extension: sse.
+     * Target Extension: avx2.
      *        Data Type: u32
-     *  Extension Flags: ['sse2', 'sse4_1']
-     *      Yaml Source: primitive_data/primitives/compare.yaml::623
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::517
      */
 
     type BaseType = u32;
-    type TargetExtension = sse<u32>;
+    type TargetExtension = avx2<u32>;
     type AdditionalParam = ();
     type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
     type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -332,11 +199,95 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, sse<u32>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        _mm_andnot_si128(
-_mm_cmpeq_epi32(vec_a, vec_b),
-_mm_cmpeq_epi32(vec_a, _mm_min_epu32(vec_a, vec_b)))
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i32gather_epi32(source, memory as *const i32, index, mask, N)
     }
-} // end of struct less_than for template specialization of less_than for sse using u32.
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using u32.
+
+
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<f32>> {
+    /**
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
+     * @details:
+     * Target Extension: avx2.
+     *        Data Type: f32
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::521
+     */
+
+    type BaseType = f32;
+    type TargetExtension = avx2<f32>;
+    type AdditionalParam = ();
+    type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
+    type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
+    type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
+    type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
+    type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
+    const is_native: bool = true;
+    const check: () = (); // function is native so no check for Idof needed.
+
+    fn parameters_queryable() -> bool{
+        return true;
+    }
+    fn has_return_value() -> bool {
+        return true;
+    }
+    fn native_supported() -> bool {
+        return true;
+    }
+
+    #[must_use] 
+    #[inline(always)]
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
+        let _ = Self::check;
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i32gather_ps(source, memory, index, mask, N)
+    }
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using f32.
+
+
+impl< const Idof: bool , const N : i32> SimdPrimitiveImpl for mask_gather<Idof, N, avx2<f64>> {
+    /**
+     * @brief: Template specialization of implementation for "mask_gather" (primitive mask_gather).
+     * @details:
+     * Target Extension: avx2.
+     *        Data Type: f64
+     *  Extension Flags: ['avx2']
+     *      Yaml Source: primitive_data/primitives/mask_ls.yaml::525
+     */
+
+    type BaseType = f64;
+    type TargetExtension = avx2<f64>;
+    type AdditionalParam = ();
+    type RegisterType = <Self::TargetExtension as TargetExtension>::RegisterType;
+    type ImaskType = <Self::TargetExtension as TargetExtension>::ImaskType;
+    type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
+    type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
+    type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
+    type Args = (Self::MaskType, Self::RegisterType, *const Self::BaseType, Self::OffsetBaseRegisterType);
+    type ReturnType = Self::RegisterType;
+    const is_native: bool = true;
+    const check: () = (); // function is native so no check for Idof needed.
+
+    fn parameters_queryable() -> bool{
+        return true;
+    }
+    fn has_return_value() -> bool {
+        return true;
+    }
+    fn native_supported() -> bool {
+        return true;
+    }
+
+    #[must_use] 
+    #[inline(always)]
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
+        let _ = Self::check;
+        let (mask, source, memory, index) = args;
+        _mm256_mask_i64gather_pd(source, memory, index, mask, N)
+    }
+} // end of struct mask_gather for template specialization of mask_gather for avx2 using f64.
 
 

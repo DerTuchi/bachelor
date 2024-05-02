@@ -16,9 +16,9 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/compare/compare_scalar.rs
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/calc/calc_scalar.rs
  * \date 2024-05-02
- * \brief Compare primitives.
+ * \brief This file contains arithmetic primitives.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -26,20 +26,20 @@
  * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
  *
  */
-use crate::generated::declarations::compare::*;
+use crate::generated::declarations::calc::*;
 use crate::generated::extensions::scalar::*;
 use crate::static_files::simd_traits::*;
 
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u8>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u8>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u8
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = u8;
@@ -50,8 +50,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u8>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -69,20 +69,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u8>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using u8.
+} // end of struct mask_add for template specialization of mask_add for scalar using u8.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u16>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u16>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u16
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = u16;
@@ -93,8 +93,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u16>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -112,20 +112,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u16>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using u16.
+} // end of struct mask_add for template specialization of mask_add for scalar using u16.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u32>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u32
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = u32;
@@ -136,8 +136,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u32>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -155,20 +155,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u32>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using u32.
+} // end of struct mask_add for template specialization of mask_add for scalar using u32.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u64>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u64
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = u64;
@@ -179,8 +179,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u64>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -198,20 +198,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<u64>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using u64.
+} // end of struct mask_add for template specialization of mask_add for scalar using u64.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i8>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i8>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i8
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = i8;
@@ -222,8 +222,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i8>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -241,20 +241,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i8>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using i8.
+} // end of struct mask_add for template specialization of mask_add for scalar using i8.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i16>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i16>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i16
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = i16;
@@ -265,8 +265,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i16>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -284,20 +284,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i16>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using i16.
+} // end of struct mask_add for template specialization of mask_add for scalar using i16.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i32>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i32
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = i32;
@@ -308,8 +308,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i32>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -327,20 +327,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i32>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using i32.
+} // end of struct mask_add for template specialization of mask_add for scalar using i32.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i64>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i64
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = i64;
@@ -351,8 +351,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i64>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -370,20 +370,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<i64>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using i64.
+} // end of struct mask_add for template specialization of mask_add for scalar using i64.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<f32>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: f32
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = f32;
@@ -394,8 +394,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f32>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -413,20 +413,20 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f32>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using f32.
+} // end of struct mask_add for template specialization of mask_add for scalar using f32.
 
 
-impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<f64>> {
     /**
-     * @brief: Template specialization of implementation for "less_than" (primitive less_than).
+     * @brief: Template specialization of implementation for "mask_add" (primitive mask_add).
      * @details:
      * Target Extension: scalar.
      *        Data Type: f64
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/compare.yaml::631
+     *      Yaml Source: primitive_data/primitives/calc.yaml::322
      */
 
     type BaseType = f64;
@@ -437,8 +437,8 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f64>> {
     type MaskType = <Self::TargetExtension as TargetExtension>::MaskType;
     type OffsetBaseType = <Self::TargetExtension as TargetExtension>::OffsetBaseType;
     type OffsetBaseRegisterType = <Self::TargetExtension as TargetExtension>::OffsetBaseRegisterType;
-    type Args = (Self::RegisterType, Self::RegisterType);
-    type ReturnType = Self::MaskType;
+    type Args = (Self::MaskType, Self::RegisterType, Self::RegisterType);
+    type ReturnType = Self::RegisterType;
     const is_native: bool = true;
     const check: () = (); // function is native so no check for Idof needed.
 
@@ -456,9 +456,9 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, scalar<f64>> {
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
-        let (vec_a, vec_b) = args;
-        (vec_a < vec_b)
+        let (mask, vec_a, vec_b) = args;
+        if mask { vec_a + vec_b } else { vec_a }
     }
-} // end of struct less_than for template specialization of less_than for scalar using f64.
+} // end of struct mask_add for template specialization of mask_add for scalar using f64.
 
 

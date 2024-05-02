@@ -16,14 +16,14 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/definitions/convert/convert_scalar.rs
- * \date 2024-04-28
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/convert/convert_scalar.rs
+ * \date 2024-05-02
  * \brief Conversion primitives.
  * \note
- * Git-Local Url : /home/dertuchi/work/TSL
+ * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.6 (7e77c245b3b376caa65a2219fb685d487b96ec1a)
+ * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
  *
  */
 use crate::generated::extensions::simd::intel::sse::sse;
@@ -31,7 +31,6 @@ use std::arch::x86_64::*;
 use crate::generated::declarations::convert::*;
 use crate::generated::extensions::scalar::*;
 use crate::static_files::simd_traits::*;
-
 
 
 
@@ -56,7 +55,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i8>, sca
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -70,13 +69,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i8>, sca
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using i8.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u8>, scalar<u8>> {
@@ -100,7 +98,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u8>, sca
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -114,13 +112,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u8>, sca
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using u8.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u16>, scalar<u16>> {
@@ -144,7 +141,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u16>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -158,13 +155,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u16>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using u16.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i16>, scalar<i16>> {
@@ -188,7 +184,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i16>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -202,13 +198,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i16>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using i16.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i32>, scalar<i32>> {
@@ -232,7 +227,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i32>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -246,13 +241,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i32>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using i32.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u32>, scalar<u32>> {
@@ -276,7 +270,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u32>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -290,13 +284,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u32>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using u32.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i64>, scalar<i64>> {
@@ -320,7 +313,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i64>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -334,13 +327,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<i64>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
     }
 } // end of struct reinterpret for template specialization of reinterpret for scalar using i64.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u64>, scalar<u64>> {
@@ -364,7 +356,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u64>, sc
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -378,7 +370,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u64>, sc
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data
@@ -386,8 +378,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, scalar<u64>, sc
 } // end of struct reinterpret for template specialization of reinterpret for scalar using u64.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i32>, scalar<i32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, sse<i32>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -408,7 +399,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i32>, scalar<i32>>
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -422,16 +413,15 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i32>, scalar<i32>>
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
-        unsafe{_mm_cvtsi32_si128(data)}
+        _mm_cvtsi32_si128(data)
     }
 } // end of struct cast for template specialization of cast for scalar using i32.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i64>, scalar<i64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, sse<i64>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -452,7 +442,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i64>, scalar<i64>>
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -466,16 +456,15 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i64>, scalar<i64>>
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
-        unsafe{_mm_cvtsi64_si128(data)}
+        _mm_cvtsi64_si128(data)
     }
 } // end of struct cast for template specialization of cast for scalar using i64.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u32>, scalar<u32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<u32>, sse<u32>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -496,7 +485,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u32>, scalar<u32>>
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -510,16 +499,15 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u32>, scalar<u32>>
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
-        unsafe{_mm_cvtsi32_si128(data as i32)}
+        _mm_cvtsi32_si128(data as i32)
     }
 } // end of struct cast for template specialization of cast for scalar using u32.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u64>, scalar<u64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<u64>, sse<u64>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -540,7 +528,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u64>, scalar<u64>>
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -554,16 +542,15 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u64>, scalar<u64>>
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
-        unsafe{_mm_cvtsi64_si128(data as i64)}
+        _mm_cvtsi64_si128(data as i64)
     }
 } // end of struct cast for template specialization of cast for scalar using u64.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, scalar<f32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<i32>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -584,7 +571,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, scalar<f3
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -598,7 +585,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, scalar<f3
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as i32
@@ -606,8 +593,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, scalar<f3
 } // end of struct cast for template specialization of cast for scalar using f32.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, scalar<f64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<i64>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
@@ -628,7 +614,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, scalar<f6
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -642,7 +628,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, scalar<f6
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as i64
@@ -650,15 +636,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, scalar<f6
 } // end of struct cast for template specialization of cast for scalar using f64.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<u32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<u32>, scalar<f32>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u32
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/convert.yaml::433
+     *      Yaml Source: primitive_data/primitives/convert.yaml::427
      */
 
     type BaseType = u32;
@@ -672,7 +657,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<u3
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -686,7 +671,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<u3
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as f32
@@ -694,15 +679,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<u3
 } // end of struct cast for template specialization of cast for scalar using u32.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<u64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<u64>, scalar<f64>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
      * Target Extension: scalar.
      *        Data Type: u64
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/convert.yaml::433
+     *      Yaml Source: primitive_data/primitives/convert.yaml::427
      */
 
     type BaseType = u64;
@@ -716,7 +700,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<u6
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -730,7 +714,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<u6
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as f64
@@ -738,15 +722,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<u6
 } // end of struct cast for template specialization of cast for scalar using u64.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<i32>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i32>, scalar<f32>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i32
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/convert.yaml::433
+     *      Yaml Source: primitive_data/primitives/convert.yaml::427
      */
 
     type BaseType = i32;
@@ -760,7 +743,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<i3
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -774,7 +757,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<i3
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as f32
@@ -782,15 +765,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f32>, scalar<i3
 } // end of struct cast for template specialization of cast for scalar using i32.
 
 
-
-impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<i64>> {
+impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<i64>, scalar<f64>> {
     /**
      * @brief: Template specialization of implementation for "cast" (primitive cast).
      * @details:
      * Target Extension: scalar.
      *        Data Type: i64
      *  Extension Flags: []
-     *      Yaml Source: primitive_data/primitives/convert.yaml::433
+     *      Yaml Source: primitive_data/primitives/convert.yaml::427
      */
 
     type BaseType = i64;
@@ -804,7 +786,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<i6
     type Args = (Self::RegisterType);
     type ReturnType = <Self::AdditionalParam as TargetExtension>::RegisterType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -818,7 +800,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, scalar<f64>, scalar<i6
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (data) = args;
         data as f64

@@ -16,8 +16,9 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/extensions/mod.rs
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/declarations/mask_ls.rs
  * \date 2024-05-02
+ * \brief Load/Store primitives on masked registers
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -25,14 +26,11 @@
  * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
  *
  */
+use std::marker::PhantomData;
+use crate::static_files::TSLArithmetic;
 use crate::static_files::simd_traits::*;
 
 
-
-pub mod simd {
-    pub mod intel {
-        pub mod avx2;
-        pub mod sse;    }}
-pub mod scalar;
+pub struct mask_gather<const Idof: bool, const N : i32, T: TargetExtension>(pub PhantomData<T>);
 
 

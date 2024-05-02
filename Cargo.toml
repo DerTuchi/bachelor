@@ -8,6 +8,9 @@ edition = "2021"
 [dependencies]
 num-traits = "0.2"
 
-[features]
-default = ["workaround"]
-workaround = []
+[dev-dependencies]
+criterion = "0.3"
+
+[[bench]]
+name = "simd_bench"
+harness = false  # This tells Cargo not to use the default test harness, as Criterion brings its own

@@ -16,14 +16,14 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/extensions/simd/intel/avx2.rs
- * \date 2024-04-28
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/extensions/simd/intel/avx2.rs
+ * \date 2024-05-02
  * \brief Definition of the SIMD TargetExtension avx2.
  * \note
- * Git-Local Url : /home/dertuchi/work/TSL
+ * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.6 (7e77c245b3b376caa65a2219fb685d487b96ec1a)
+ * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
  *
  */
 use std::marker::PhantomData;

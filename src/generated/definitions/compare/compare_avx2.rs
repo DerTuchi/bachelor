@@ -16,21 +16,20 @@
  * limitations under the License.                                           *
  *==========================================================================*/
 /*
- * \file /home/dertuchi/work/TSL/generated_tsl/generator_output/include/generated/definitions/compare/compare_avx2.rs
- * \date 2024-04-28
+ * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/compare/compare_avx2.rs
+ * \date 2024-05-02
  * \brief Compare primitives.
  * \note
- * Git-Local Url : /home/dertuchi/work/TSL
+ * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.6 (7e77c245b3b376caa65a2219fb685d487b96ec1a)
+ * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
  *
  */
 use std::arch::x86_64::*;
 use crate::generated::declarations::compare::*;
 use crate::generated::extensions::simd::intel::avx2::*;
 use crate::static_files::simd_traits::*;
-
 
 
 
@@ -55,7 +54,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i8>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -69,13 +68,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i8>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmpgt_epi8(vec_b, vec_a)}
+        _mm256_cmpgt_epi8(vec_b, vec_a)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using i8.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i16>> {
@@ -99,7 +97,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i16>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -113,13 +111,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i16>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmpgt_epi16(vec_b, vec_a)}
+        _mm256_cmpgt_epi16(vec_b, vec_a)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using i16.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i32>> {
@@ -143,7 +140,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i32>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -157,13 +154,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i32>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmpgt_epi32(vec_b, vec_a)}
+        _mm256_cmpgt_epi32(vec_b, vec_a)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using i32.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i64>> {
@@ -187,7 +183,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i64>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -201,13 +197,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<i64>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmpgt_epi64(vec_b, vec_a)}
+        _mm256_cmpgt_epi64(vec_b, vec_a)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using i64.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f32>> {
@@ -231,7 +226,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f32>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -245,13 +240,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f32>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmp_ps(vec_a, vec_b, _CMP_LT_OQ)}
+        _mm256_cmp_ps(vec_a, vec_b, _CMP_LT_OQ)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using f32.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f64>> {
@@ -275,7 +269,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f64>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -289,13 +283,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<f64>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_cmp_pd(vec_a, vec_b, _CMP_LT_OQ)}
+        _mm256_cmp_pd(vec_a, vec_b, _CMP_LT_OQ)
     }
 } // end of struct less_than for template specialization of less_than for avx2 using f64.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u8>> {
@@ -319,7 +312,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u8>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -333,15 +326,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u8>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_andnot_si256(
-  _mm256_cmpeq_epi8(vec_a, vec_b),
-  _mm256_cmpeq_epi8(vec_a, _mm256_min_epu8(vec_a, vec_b)))}
+        _mm256_andnot_si256(
+_mm256_cmpeq_epi8(vec_a, vec_b),
+_mm256_cmpeq_epi8(vec_a, _mm256_min_epu8(vec_a, vec_b)))
     }
 } // end of struct less_than for template specialization of less_than for avx2 using u8.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u16>> {
@@ -365,7 +357,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u16>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -379,15 +371,14 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u16>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_andnot_si256(
-  _mm256_cmpeq_epi16(vec_a, vec_b),
-  _mm256_cmpeq_epi16(vec_a, _mm256_min_epu16(vec_a, vec_b)))}
+        _mm256_andnot_si256(
+_mm256_cmpeq_epi16(vec_a, vec_b),
+_mm256_cmpeq_epi16(vec_a, _mm256_min_epu16(vec_a, vec_b)))
     }
 } // end of struct less_than for template specialization of less_than for avx2 using u16.
-
 
 
 impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u32>> {
@@ -411,7 +402,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u32>> {
     type Args = (Self::RegisterType, Self::RegisterType);
     type ReturnType = Self::MaskType;
     const is_native: bool = true;
-    const check: () = ();
+    const check: () = (); // function is native so no check for Idof needed.
 
     fn parameters_queryable() -> bool{
         return true;
@@ -425,12 +416,12 @@ impl< const Idof: bool > SimdPrimitiveImpl for less_than<Idof, avx2<u32>> {
 
     #[must_use] 
     #[inline(always)]
-    fn apply(args: Self::Args) -> Self::ReturnType{
+    unsafe fn apply(args: Self::Args) -> Self::ReturnType{
         let _ = Self::check;
         let (vec_a, vec_b) = args;
-        unsafe{_mm256_andnot_si256(
-  _mm256_cmpeq_epi32(vec_a, vec_b),
-  _mm256_cmpeq_epi32(vec_a, _mm256_min_epu32(vec_a, vec_b)))}
+        _mm256_andnot_si256(
+_mm256_cmpeq_epi32(vec_a, vec_b),
+_mm256_cmpeq_epi32(vec_a, _mm256_min_epu32(vec_a, vec_b)))
     }
 } // end of struct less_than for template specialization of less_than for avx2 using u32.
 
