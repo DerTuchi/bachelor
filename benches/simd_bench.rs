@@ -36,12 +36,11 @@ unsafe fn process_data_simd(data: &[base]) {
     let mut result_arr = [0;target::vector_element_count()];
     ls::storeu::<true, target>::apply((result_arr.as_mut_ptr(), result_vec));
     let sum: u32 = result_arr.iter().map(|&x| x as u32).sum();
-    // Result is 2518
 }
 
 // Benchmark function
 fn simd_benchmark(c: &mut Criterion) {
-    let data = load_data_into_memory("/home/dertuchi/i32_data.bin").expect("Failed to load data");
+    let data = load_data_into_memory("/home/dertuchi/u8_data.bin").expect("Failed to load data");
 
     c.bench_function("simd_processing", |b| {
         b.iter(|| unsafe {
