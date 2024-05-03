@@ -40,7 +40,7 @@ unsafe fn process_data_simd(data: &[base]) {
 
 // Benchmark function
 fn simd_benchmark(c: &mut Criterion) {
-    let data = load_data_into_memory("/home/dertuchi/u8_data.bin").expect("Failed to load data");
+    let data = load_data_into_memory("/home/dertuchi/data/u8.bin").expect("Failed to load data");
 
     c.bench_function("simd_processing", |b| {
         b.iter(|| unsafe {
