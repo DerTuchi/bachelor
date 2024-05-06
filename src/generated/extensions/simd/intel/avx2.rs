@@ -17,13 +17,13 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/extensions/simd/intel/avx2.rs
- * \date 2024-05-02
+ * \date 2024-05-05
  * \brief Definition of the SIMD TargetExtension avx2.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
+ * Git-Commit    : v0.0.8-1-ga6bbe75 (a6bbe756f616e7ae096743b00267b33d7e112930)
  *
  */
 use std::marker::PhantomData;
@@ -87,7 +87,7 @@ where
     T : TSLArithmetic + SelectRegisteravx2 + SelectImaskavx2 + SelectOffsetBaseType,
         <T as SelectOffsetBaseType>::Output: SelectRegisteravx2
 {
-    const DEFAULT_SIZE_IN_BITS : usize = 128;
+    const DEFAULT_SIZE_IN_BITS : usize = 256;
 
     pub const fn vector_size_b() -> usize{
         Self::DEFAULT_SIZE_IN_BITS

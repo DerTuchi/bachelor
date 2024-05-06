@@ -17,13 +17,13 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/static_files/simd_traits.rs
- * \date 2024-05-02
+ * \date 2024-05-05
  * \brief Traits for TargetExtension and Primitive Impl handling.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
+ * Git-Commit    : v0.0.8-1-ga6bbe75 (a6bbe756f616e7ae096743b00267b33d7e112930)
  *
  */
 use super::TSLArithmetic;
@@ -45,7 +45,9 @@ pub trait SimdPrimitiveImpl{
 
   fn parameters_queryable() -> bool;
   fn has_return_value() -> bool;
-  fn native_supported() -> bool;
+  fn native_supported() -> bool {
+    Self::is_native
+  }
   unsafe fn apply(args: Self::Args) -> Self::ReturnType;
 }
 

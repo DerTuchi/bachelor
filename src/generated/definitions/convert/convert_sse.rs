@@ -17,13 +17,13 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/convert/convert_sse.rs
- * \date 2024-05-02
+ * \date 2024-05-05
  * \brief Conversion primitives.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
+ * Git-Commit    : v0.0.8-1-ga6bbe75 (a6bbe756f616e7ae096743b00267b33d7e112930)
  *
  */
 use std::arch::x86_64::*;
@@ -64,10 +64,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i8>, sse<i8
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -107,10 +104,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u8>, sse<u8
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -150,10 +144,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u16>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -193,10 +184,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i16>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -236,10 +224,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i32>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -279,10 +264,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u32>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -322,10 +304,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i64>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -365,10 +344,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u64>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -408,10 +384,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i8>, sse<f3
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -451,10 +424,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u8>, sse<f3
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -494,10 +464,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u16>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -537,10 +504,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i16>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -580,10 +544,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i32>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -623,10 +584,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u32>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -666,10 +624,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i64>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -709,10 +664,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u64>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -752,10 +704,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -795,10 +744,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -838,10 +784,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -881,10 +824,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -924,10 +864,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -967,10 +904,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1010,10 +944,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1053,10 +984,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f32>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1096,10 +1024,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i8>, sse<f6
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1139,10 +1064,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u8>, sse<f6
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1182,10 +1104,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u16>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1225,10 +1144,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i16>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1268,10 +1184,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i32>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1311,10 +1224,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u32>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1354,10 +1264,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<i64>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1397,10 +1304,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<u64>, sse<f
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1440,10 +1344,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1483,10 +1384,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1526,10 +1424,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1569,10 +1464,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1612,10 +1504,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1655,10 +1544,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1698,10 +1584,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<i
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1741,10 +1624,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for reinterpret<Idof, sse<f64>, sse<u
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1784,10 +1664,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i8>, avx2<i8>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1827,10 +1704,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u8>, avx2<u8>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1870,10 +1744,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i16>, avx2<i16>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1913,10 +1784,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u16>, avx2<u16>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1956,10 +1824,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i32>, avx2<i32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -1999,10 +1864,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u32>, avx2<u32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2042,10 +1904,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i64>, avx2<i64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2085,10 +1944,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u64>, avx2<u64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2128,10 +1984,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<f32>, sse<i32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2171,10 +2024,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<f32>, sse<u32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2214,10 +2064,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<f64>, sse<i64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2257,10 +2104,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<f64>, sse<u64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2300,10 +2144,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<i32>, sse<f32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2343,10 +2184,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u32>, sse<f32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -2391,10 +2229,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for cast<Idof, sse<u64>, sse<f64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{

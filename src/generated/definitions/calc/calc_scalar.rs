@@ -17,13 +17,13 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/calc/calc_scalar.rs
- * \date 2024-05-02
+ * \date 2024-05-05
  * \brief This file contains arithmetic primitives.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
  * Git-Branch    : main
- * Git-Commit    : v0.0.8 (7302664ad7b976795a660a3a21d6f31554148172)
+ * Git-Commit    : v0.0.8-1-ga6bbe75 (a6bbe756f616e7ae096743b00267b33d7e112930)
  *
  */
 use crate::generated::declarations::calc::*;
@@ -61,10 +61,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u8>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -104,10 +101,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u16>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -147,10 +141,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -190,10 +181,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<u64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -233,10 +221,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i8>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -276,10 +261,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i16>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -319,10 +301,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -362,10 +341,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<i64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -405,10 +381,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<f32>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
@@ -448,10 +421,7 @@ impl< const Idof: bool > SimdPrimitiveImpl for mask_add<Idof, scalar<f64>> {
     fn has_return_value() -> bool {
         return true;
     }
-    fn native_supported() -> bool {
-        return true;
-    }
-
+    
     #[must_use] 
     #[inline(always)]
     unsafe fn apply(args: Self::Args) -> Self::ReturnType{
