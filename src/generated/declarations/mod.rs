@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/declarations/mod.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -29,10 +29,10 @@ use crate::static_files::simd_traits::*;
 
 
 
-pub mod calc;
 pub mod mask_ls;
-pub mod ls;
-pub mod convert;
 pub mod compare;
+pub mod convert;
+pub mod calc;
+pub mod ls;
 
 

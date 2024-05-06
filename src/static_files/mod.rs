@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/static_files/mod.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \brief Module for Packing static_files
  * \note
  * Git-Local Url : /home/dertuchi/TSL

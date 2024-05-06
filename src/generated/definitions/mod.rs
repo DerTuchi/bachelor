@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/definitions/mod.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -29,23 +29,23 @@ use crate::static_files::simd_traits::*;
 
 
 
-pub mod calc {
-    pub mod calc_avx2;
-    pub mod calc_sse;
-    pub mod calc_scalar;}
 pub mod mask_ls {
     pub mod mask_ls_avx2;}
-pub mod ls {
-    pub mod ls_avx2;
-    pub mod ls_sse;
-    pub mod ls_scalar;}
-pub mod convert {
-    pub mod convert_avx2;
-    pub mod convert_sse;
-    pub mod convert_scalar;}
 pub mod compare {
     pub mod compare_avx2;
     pub mod compare_sse;
     pub mod compare_scalar;}
+pub mod convert {
+    pub mod convert_avx2;
+    pub mod convert_sse;
+    pub mod convert_scalar;}
+pub mod calc {
+    pub mod calc_avx2;
+    pub mod calc_sse;
+    pub mod calc_scalar;}
+pub mod ls {
+    pub mod ls_avx2;
+    pub mod ls_sse;
+    pub mod ls_scalar;}
 
 

@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/declarations/compare.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \brief Compare primitives.
  * \note
  * Git-Local Url : /home/dertuchi/TSL

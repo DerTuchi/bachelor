@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/extensions/mod.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \note
  * Git-Local Url : /home/dertuchi/TSL
  * Git-Remote Url: https://github.com/DerTuchi/TSL.git
@@ -29,10 +29,10 @@ use crate::static_files::simd_traits::*;
 
 
 
+pub mod scalar;
 pub mod simd {
     pub mod intel {
         pub mod sse;
         pub mod avx2;    }}
-pub mod scalar;
 
 

@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/static_files/simd_traits.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \brief Traits for TargetExtension and Primitive Impl handling.
  * \note
  * Git-Local Url : /home/dertuchi/TSL

@@ -17,7 +17,7 @@
  *==========================================================================*/
 /*
  * \file /home/dertuchi/TSL/generated_tsl/generator_output/include/generated/extensions/scalar.rs
- * \date 2024-05-05
+ * \date 2024-05-06
  * \brief Definition of the SIMD TargetExtension sse.
  * \note
  * Git-Local Url : /home/dertuchi/TSL
@@ -53,7 +53,7 @@ where
     T : TSLArithmetic + SelectRegisterscalar + SelectImaskscalar + SelectOffsetBaseType,
         <T as SelectOffsetBaseType>::Output: SelectRegisterscalar
 {
-    const DEFAULT_SIZE_IN_BITS : usize = 128;
+    const DEFAULT_SIZE_IN_BITS : usize = 1;
 
     pub const fn vector_size_b() -> usize{
         Self::DEFAULT_SIZE_IN_BITS

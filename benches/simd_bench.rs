@@ -32,23 +32,18 @@ fn load_data_into_memory<T>(filename: &str) -> io::Result<(Vec<T>, usize)> {
 }
 
 // SIMD processing function
-unsafe fn process_data_simd(data: &[base], size: usize, threshold: base) {
+unsafe fn process_data_simd(data: &[base], threshold: base) {
     let mut result_vec = ls::set1::<true, target>::apply(0);
     let all_ones = ls::set1::<true, target>::apply(1);
-    for i in (0..size).step_by(target::vector_element_count()) {
-        let offset_ptr = data.as_ptr().add(i);
-        let vec_age = ls::loadu::<true, target>::apply(offset_ptr);
+    for chunk in data.chunks_exact(target::vector_element_count()) {
+        let vec_age = ls::loadu::<true, target>::apply(chunk.as_ptr());
         let vec_val = ls::set1::<true, target>::apply((threshold));
         let result_mask = compare::less_than::<true, target>::apply((vec_age, vec_val));
         result_vec = calc::mask_add::<true, target>::apply((result_mask, result_vec, all_ones));
     }
     let mut result_arr = [0;target::vector_element_count()];
     ls::storeu::<true, target>::apply((result_arr.as_mut_ptr(), result_vec));
-    let mut sum : u32 = 0;
-    for &val in result_arr.iter(){
-        sum += val as u32;
-    }
-    println!("Result: {}", sum);
+    let sum: u32 = result_arr.iter().map(|&val| val as u32).sum();
 }
 
 // Benchmark function
@@ -57,12 +52,12 @@ fn simd_benchmark(c: &mut Criterion) {
 
     c.bench_function("simd_processing", |b| {
         b.iter(|| unsafe {
-            process_data_simd(&data, size, 40)
+            process_data_simd(&data, 40)
         })
     });
 }
 
-type base = u32;
+type base = u8;
 type target = avx2<base>;
 criterion_group!(benches, simd_benchmark);
 criterion_main!(benches);

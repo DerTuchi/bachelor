@@ -15,3 +15,8 @@ criterion = "0.3"
 [[bench]]
 name = "simd_bench"
 harness = false  # This tells Cargo not to use the default test harness, as Criterion brings its own
+
+[profile.bench]
+opt-level = 3
+debug = false  # Set to true if you need to debug the benchmarks
+lto = true     # Enables Link Time Optimizations
