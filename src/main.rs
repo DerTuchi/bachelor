@@ -5,7 +5,6 @@ use std::arch::x86_64::*;
 mod static_files;
 mod generated;
 
-
 use generated::extensions::simd::intel::sse::sse;
 use generated::extensions::simd::intel::avx2::avx2;
 use generated::declarations::convert::*;

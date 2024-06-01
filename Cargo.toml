@@ -20,3 +20,8 @@ harness = false  # This tells Cargo not to use the default test harness, as Crit
 opt-level = 3
 debug = false  # Set to true if you need to debug the benchmarks
 lto = true     # Enables Link Time Optimizations
+
+[profile.release]
+opt-level = 3
+debug = false  # Set to true if you need to debug the benchmarks
+lto = true     # Enables Link Time Optimizations
